@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels: {{- include "site.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicas }}
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels: {{- include "site.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "site.labels" . | nindent 8 }}
+      annotations:
+        # roll the pods whenever a page or the nginx config changes
+        checksum/pages: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+        runAsGroup: 101
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: nginx
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - { name: http, containerPort: 8080 }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: [ALL] }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 30
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - { name: pages, mountPath: /usr/share/nginx/html, readOnly: true }
+            - { name: nginx-conf, mountPath: /etc/nginx/conf.d, readOnly: true }
+            - { name: tmp, mountPath: /tmp }
+      volumes:
+        - name: pages
+          configMap:
+            name: {{ .Release.Name }}-pages
+            items:
+            {{- range $path, $_ := .Files.Glob "site/**" }}
+              - { key: {{ include "site.key" $path | quote }}, path: {{ trimPrefix "site/" $path | quote }} }
+            {{- end }}
+        - name: nginx-conf
+          configMap:
+            name: {{ .Release.Name }}-nginx
+        - name: tmp
+          emptyDir: {}

@@ -1,0 +1,20 @@
+# Register once: kubectl apply -n tomorrow -f argocd/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: home-k8s-apps-site
+  namespace: tomorrow
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sogaani/home-k8s-apps-site.git
+    targetRevision: main
+    path: chart
+    helm:
+      releaseName: home-k8s-apps-site
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: home-k8s-apps-site
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions: [CreateNamespace=true]

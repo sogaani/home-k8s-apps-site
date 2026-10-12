@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー / Privacy Policy — wanawata apps</title>
+  <meta name="description" content="my-knowledge のプライバシーポリシー / Privacy Policy of my-knowledge.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <a href="/">wanawata apps</a>
+    <nav><a href="/my-knowledge/">my-knowledge</a><a href="#en">English</a></nav>
+  </header>
+  <main>
+    <h1>プライバシーポリシー</h1>
+    <p class="lead">対象: my-knowledge（運営者: sogaani）/ 施行日: 2026 年 10 月 12 日</p>
+
+    <h2>1. このアプリについて</h2>
+    <p>my-knowledge は、運営者 sogaani が自分自身のデータを整理するためだけに使う個人用アプリです。運営者以外の利用者は想定しておらず、運営者以外の Google アカウントのデータにはアクセスしません。</p>
+
+    <h2>2. 取得する情報</h2>
+    <p>運営者が自分の Google アカウントで許可した範囲で、次の情報を Google API から取得します。</p>
+    <table>
+      <tr><th>API・スコープ</th><th>取得する情報</th></tr>
+      <tr><td>Gmail API<br><code>gmail.modify</code></td><td>運営者の Gmail フィルタが「KB/」ラベル（購入・サブスク・金融・本・視聴・作業）を付けたメールの差出人・宛先・日時・件名・本文・添付ファイル名。取り込んだメールには「KB/取込済」ラベルを付けます。メールの送信・削除・ラベル以外の変更は行いません。</td></tr>
+      <tr><td>Google Calendar API<br><code>calendar.readonly</code></td><td>表示中のカレンダーの予定（過去の予定と、2 年先までの予定）のタイトル・日時・場所・説明・参加状況。</td></tr>
+      <tr><td>YouTube Data API<br><code>youtube.readonly</code></td><td>高評価した動画と、運営者が指定した再生リストの動画のタイトル・チャンネル名・説明。</td></tr>
+      <tr><td>Google Health API<br><code>googlehealth.activity_and_fitness.readonly</code><br><code>googlehealth.sleep.readonly</code></td><td>日別の歩数・移動距離・消費カロリー・アクティブ時間と、睡眠の記録（睡眠時間・睡眠段階）。</td></tr>
+    </table>
+
+    <h2>3. 利用目的</h2>
+    <p>取得した情報は、運営者本人のためのノート（支出の台帳、サブスクリプション・口座・読書・視聴・プロジェクト・健康の記録）を作成・更新し、運営者本人が検索・閲覧するためだけに使います。広告、第三者への販売、信用評価、利用者の追跡には使いません。</p>
+
+    <h2>4. 保存場所と保護</h2>
+    <ul>
+      <li>取得した生データは運営者の手元の Mac に保存します。</li>
+      <li>整理したノートは運営者専用の非公開 Git リポジトリに保存します。金融・サブスクリプション・仕事・健康に関するノートは暗号化（git-crypt）して保存します。</li>
+      <li>ノートを閲覧する Web アプリは運営者の自宅サーバーで動作し、Cloudflare Access で運営者のアカウントだけがアクセスできるよう制限しています。</li>
+      <li>認証情報（OAuth のトークン）は運営者の Mac 上の、Git で管理しないファイルにのみ保存します。</li>
+    </ul>
+
+    <h2>5. 第三者への提供</h2>
+    <p>取得した情報を販売・貸与することはありません。次のサービスは、上記の目的を果たすためだけに、運営者の指示のもとで情報を扱います。</p>
+    <ul>
+      <li><strong>AI アシスタント</strong>（現在は Anthropic の Claude）: 取り込んだ情報を要約・分類してノートにまとめるために使います。</li>
+      <li><strong>GitHub</strong>: ノートを保存する非公開リポジトリのホスティング（機微な分野は暗号化済み）。</li>
+      <li><strong>Cloudflare</strong>: 運営者専用 Web アプリへの通信経路とアクセス制御。</li>
+    </ul>
+    <p>法令に基づく場合を除き、これ以外の第三者に提供しません。</p>
+
+    <h2>6. Google API Services User Data Policy の遵守</h2>
+    <p>my-knowledge による Google API から受け取った情報の利用と他のアプリへの転送は、<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>（Limited Use 要件を含む）に従います。Google から得たユーザーデータを、汎用的な AI・機械学習モデルの開発・改善・学習に使うことはありません。人がメールなどを読むのは、運営者本人が自分のデータを確認する場合に限られます。</p>
+
+    <h2>7. 保存期間と削除</h2>
+    <p>ノートは運営者が不要と判断するまで保存します。生データは 3 年を目安に整理（削除）します。運営者はいつでも、ノート・生データを削除し、<a href="https://myaccount.google.com/permissions">Google アカウントの「サードパーティ アプリとサービス」</a>から my-knowledge へのアクセス許可を取り消せます。取り消すと以後の取得は行われません。</p>
+
+    <h2>8. 変更</h2>
+    <p>このポリシーを変更する場合は、このページを更新し、施行日を改めます。</p>
+
+    <h2>9. 問い合わせ先</h2>
+    <p>sogaani — <a href="mailto:soga.ani@gmail.com">soga.ani@gmail.com</a></p>
+
+    <section class="en" id="en" lang="en">
+      <h1>Privacy Policy</h1>
+      <p class="lead">Applies to: my-knowledge (operated by sogaani) / Effective: October 12, 2026</p>
+
+      <h2>1. About this app</h2>
+      <p>my-knowledge is a personal app that its operator, sogaani, uses only to organize the operator's own data. It has no other users and does not access data from any Google account other than the operator's own.</p>
+
+      <h2>2. Information we access</h2>
+      <p>Within the permissions the operator grants on their own Google account, the app reads:</p>
+      <table>
+        <tr><th>API / scope</th><th>Information</th></tr>
+        <tr><td>Gmail API<br><code>gmail.modify</code></td><td>Sender, recipients, date, subject, body and attachment names of messages that the operator's own Gmail filter labelled "KB/…" (purchases, subscriptions, finance, books, media, tasks). The app adds the label "KB/取込済" to messages it has imported. It never sends or deletes mail and makes no other changes.</td></tr>
+        <tr><td>Google Calendar API<br><code>calendar.readonly</code></td><td>Title, time, location, description and attendance of events on the calendars shown, both past events and events up to two years ahead.</td></tr>
+        <tr><td>YouTube Data API<br><code>youtube.readonly</code></td><td>Title, channel and description of liked videos and of videos in playlists the operator selects.</td></tr>
+        <tr><td>Google Health API<br><code>googlehealth.activity_and_fitness.readonly</code><br><code>googlehealth.sleep.readonly</code></td><td>Daily steps, distance, calories, active minutes, and sleep records (duration and stages).</td></tr>
+      </table>
+
+      <h2>3. How we use it</h2>
+      <p>The information is used only to create and update notes for the operator (a spending ledger and records of subscriptions, accounts, reading, viewing, projects and health) that the operator searches and reads. It is not used for advertising, sold, used for credit decisions, or used to track anyone.</p>
+
+      <h2>4. Storage and protection</h2>
+      <ul>
+        <li>Raw data is stored on the operator's own Mac.</li>
+        <li>Notes are stored in the operator's private Git repository; notes about finance, subscriptions, work and health are encrypted with git-crypt.</li>
+        <li>The web app for reading the notes runs on the operator's home server and is restricted by Cloudflare Access to the operator's account only.</li>
+        <li>OAuth tokens are kept only in an untracked file on the operator's Mac.</li>
+      </ul>
+
+      <h2>5. Sharing</h2>
+      <p>We do not sell or rent this information. The following services handle it on the operator's instructions solely for the purpose above:</p>
+      <ul>
+        <li><strong>An AI assistant</strong> (currently Anthropic's Claude), to summarize and classify imported information into notes.</li>
+        <li><strong>GitHub</strong>, hosting the private repository of notes (sensitive areas encrypted).</li>
+        <li><strong>Cloudflare</strong>, network path and access control for the operator-only web app.</li>
+      </ul>
+      <p>No other third party receives it, except where required by law.</p>
+
+      <h2>6. Google API Services User Data Policy</h2>
+      <p>my-knowledge's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is not used to develop, improve, or train generalized AI or machine-learning models. Humans read the data only when the operator reviews their own data.</p>
+
+      <h2>7. Retention and deletion</h2>
+      <p>Notes are kept until the operator deletes them; raw data is pruned after about three years. The operator can delete notes and raw data at any time and revoke the app's access at <a href="https://myaccount.google.com/permissions">Google Account → Third-party apps &amp; services</a>, after which no further data is read.</p>
+
+      <h2>8. Changes</h2>
+      <p>Changes to this policy are published on this page with a new effective date.</p>
+
+      <h2>9. Contact</h2>
+      <p>sogaani — <a href="mailto:soga.ani@gmail.com">soga.ani@gmail.com</a></p>
+    </section>
+  </main>
+  <footer>© 2026 sogaani · <a href="/">wanawata apps</a></footer>
+</body>
+</html>

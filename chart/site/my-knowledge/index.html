@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>my-knowledge</title>
+  <meta name="description" content="my-knowledge: 個人のナレッジベース / a personal knowledge base for its owner's own data.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <img src="/icon.svg" alt="">
+    <a href="/my-knowledge/">my-knowledge</a>
+    <nav><a href="/">wanawata apps</a><a href="/privacy/">プライバシー / Privacy</a></nav>
+  </header>
+  <main>
+    <h1>my-knowledge</h1>
+    <p class="lead">sogaani が自分のために使う、個人のナレッジベースです。一般には提供していません。</p>
+
+    <h2>何をするアプリか</h2>
+    <p>本人のデータを定期的に取り込み、読書・視聴記録、サブスクリプション、支出、プロジェクト、健康記録などのノートに整理します。ノートは本人だけが見られる場所に保存し、本人だけが検索・閲覧します。</p>
+
+    <h2>Google のデータの使い方</h2>
+    <p>本人の Google アカウントに対して、次の読み取りを行います（Gmail のラベル付けを除き、変更・送信・削除はしません）。</p>
+    <table>
+      <tr><th>サービス</th><th>取得するもの</th><th>用途</th></tr>
+      <tr><td>Gmail</td><td>本人の Gmail フィルタが「KB/」ラベルを付けたメール（購入・サブスク・金融・本・視聴・作業）</td><td>支出の台帳、サブスク・口座・読書・視聴・プロジェクトの記録。取得済みのメールに「KB/取込済」ラベルを付ける</td></tr>
+      <tr><td>Google カレンダー</td><td>過去の予定と、2 年先までの予定</td><td>プロジェクトの記録・期限、振り返り</td></tr>
+      <tr><td>YouTube</td><td>高評価した動画、指定した再生リスト</td><td>学習・視聴の記録</td></tr>
+      <tr><td>Google Health</td><td>日別の歩数・距離・消費カロリー・活動時間・睡眠</td><td>月ごとの健康記録</td></tr>
+    </table>
+    <p>詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
+
+    <section class="en" lang="en">
+      <h2>English</h2>
+      <p><strong>my-knowledge</strong> is a personal knowledge base that sogaani builds and uses for their own purposes only; it is not offered to anyone else.</p>
+      <p>It periodically imports the owner's own data and organizes it into private notes (reading and viewing logs, subscriptions, spending, projects, health records). The notes are stored where only the owner can access them.</p>
+      <p>With the owner's consent it reads from the owner's Google account: Gmail messages that the owner's own Gmail filter labelled "KB/…" (and it adds the label "KB/取込済" to messages it has imported; it never sends or deletes mail), Google Calendar events (past events and events up to two years ahead), YouTube liked videos and selected playlists, and daily steps, distance, calories, active minutes and sleep from Google Health.</p>
+      <p>See the <a href="/privacy/">Privacy Policy</a> for details.</p>
+    </section>
+  </main>
+  <footer>© 2026 sogaani · <a href="mailto:soga.ani@gmail.com">soga.ani@gmail.com</a></footer>
+</body>
+</html>

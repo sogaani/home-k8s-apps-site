@@ -1,0 +1,19 @@
+{{- if .Values.ingress.enabled }}
+# cloudflare-tunnel-ingress-controller routes this host through the tunnel and creates the DNS record.
+# Public on purpose: there is no Cloudflare Access application for this host.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  labels: {{- include "site.labels" . | nindent 4 }}
+spec:
+  ingressClassName: {{ .Values.ingress.className }}
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: { name: {{ .Release.Name }}, port: { name: http } }
+{{- end }}
